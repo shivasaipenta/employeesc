@@ -1,0 +1,61 @@
+ <mvc:View
+    controllerName="employeesc.controller.View3"
+    xmlns="sap.m"   
+    xmlns:layout="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <Page id="idPage3" title="view 3" showNavButton="true" navButtonPress="onBack">
+          
+       
+      <layout:SimpleForm
+                id="SimpleForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanL="3"
+                labelSpanM="3"
+                emptySpanL="4"
+                emptySpanM="4"
+                columnsL="1"
+                columnsM="1">
+                <layout:content>
+                    <Label text="Empid"/>
+                    <Input value="{CreateNUpdate>/Empid}" />
+
+                    <Label text="Name"/>
+                    <Input value="{CreateNUpdate>/Name}" />
+
+                    <Label text="Designation"/>
+                    <Input value="{CreateNUpdate>/Desig}" />
+
+                    <Label text="Skill"/>
+                    <Input value="{CreateNUpdate>/Skill}" />
+
+                    <Label text="Email"/>
+                    <Input value="{CreateNUpdate>/Email}" />
+
+                    <Label text="Salary"/>
+                    <Input value="{CreateNUpdate>/Salary}" />
+
+              
+
+                    <Label text="Status"/>
+                    <Input value="{CreateNUpdate>/Status}" />
+
+
+                   
+                </layout:content>
+            </layout:SimpleForm>
+
+            <footer>
+              <Bar >
+                     <contentRight>
+                            <Button text="Save" press="onPressSave" type="Accept"></Button>
+                            <Button text="Cancel" press="onPressBack" type="Reject"></Button>
+                     </contentRight>
+              </Bar>
+            </footer>
+    
+
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,154 @@
+<mvc:View controllerName="employeesc.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+    xmlns:r="sap.ui.layout.form.ResponsiveGridLayout"
+    xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+   
+<Panel headerText="Filter Employees">
+  
+     <f:SimpleForm editable="true" layout="ResponsiveGridLayout" emptySpanL="6">
+           <f:content>
+                <Label text="Employee Id"></Label>
+                <Input ></Input>
+           </f:content>
+    
+     </f:SimpleForm>
+     <FlexBox justifyContent="End" >
+            <Button id="b1" text="Go" icon="sap-icon://accept" type="Accept" class="sapUiTinyMarginEnd" press="onPressGo"></Button>
+            <Button id="b2" text="Reset" icon="sap-icon://reset" type="Reject" press="onPressReset"></Button>
+     </FlexBox>
+         
+   </Panel>
+
+ 
+    <ScrollContainer vertical="true" horizontal="true">
+
+   <Table id="table01" items="{empModel>/results}" mode="SingleSelectLeft">
+
+        <headerToolbar>
+            <Toolbar >
+            <Title text="Employee details" ></Title>
+            <ToolbarSpacer ></ToolbarSpacer>
+            <Button text="Create Employee" type="Emphasized" icon="sap-icon://add" press="onPressCreate"></Button>
+            <Button text="Edit Employee" type="Success" icon="sap-icon://edit" press="onPressEdit"></Button>
+            <Button text="Delete Employee" type="Reject" icon="sap-icon://delete" press="onPressDelete"></Button>
+     
+            <Button icon="sap-icon://excel-attachment" type="Emphasized" press="onExportToXL"></Button>
+            </Toolbar>
+        </headerToolbar>
+
+        <columns>
+            <Column >
+                <Text text="S.No"></Text>
+            </Column>
+            <Column >
+                <Text text="Employee ID"></Text>
+            </Column>
+            <Column  width="">
+                 <Text text="Name" width="10rem"></Text>
+            </Column>
+            <Column width="10rem">
+            <Text text="Designation">
+                </Text></Column>
+            <Column >
+                <Text text="Skill"></Text>
+            </Column>
+             <Column width="10rem">
+                <Text text="Status"></Text>
+            </Column>
+           
+            <Column width="10rem" >
+                <Text text="Email"></Text>
+            </Column>
+            <Column width="10rem" >
+                <Text text="Salary"></Text>
+            </Column>
+            <Column width="10rem">
+             <Text text="Date of Joining"></Text>
+            </Column>      
+        </columns>    
+            
+            <items>
+            <ColumnListItem  type="Active" press="onPressRow">
+                <cells>
+                    <Text text="{empModel>SNo}"></Text>
+                    <Text text="{empModel>Empid}" ></Text>
+                    <Text text="{empModel>Name}"></Text>
+                    <Text text="{path:'empModel>Desig', formatter:'.f.formatDesig'}"></Text>
+                    <ObjectStatus text="{empModel>Skill}" state="{path:'empModel>Skill', formatter:'.f.formatSkill'}"></ObjectStatus>
+                    <Text text="{empModel>Status}"></Text>
+                    <Text text="{empModel>Email}"></Text>
+                    <Text text="{path:'empModel>Salary', formatter:'.f.formatCurrency'}"></Text>
+                    <Text text="{path:'empModel>Doj',formatter:'.f.formatDate'}"></Text>
+                </cells>
+            </ColumnListItem>
+            </items>       
+        </Table>   
+        
+        
+
+    </ScrollContainer>
+
+
+
+
+ <ScrollContainer vertical="true" horizontal="true">
+   <Table id="table02" items="{localData>/JSONEmployees}" mode="SingleSelectLeft">
+        <headerToolbar>
+            <Toolbar >
+            <Title text="Employee details" ></Title>
+            <ToolbarSpacer ></ToolbarSpacer>
+             <Button type="Emphasized" text="showSelctid" press="onSelectRow"></Button>
+            <Button type="Emphasized" press="onPressTableRow"></Button>
+            <Button icon="sap-icon://excel-attachment" type="Emphasized" press="onExportToXL"></Button>
+            </Toolbar>
+        </headerToolbar>
+         <columns>
+                <Column ><Text text="S.No"></Text></Column>
+            </columns>
+            <columns>
+                <Column ><Text text="Employee ID"></Text></Column>
+            </columns>
+            <columns>
+                <Column  width="8rem"><Text text="Name"></Text></Column>
+            </columns>
+            <columns>
+                <Column width="8rem"><Text text="Designation"></Text></Column>
+            </columns>
+            <columns>
+                <Column width="8rem"><Text text="Skill"></Text></Column>
+            </columns>
+            <columns>
+                <Column width="8rem"><Text text="Phone"></Text></Column>
+            </columns>
+            <columns>
+                <Column width="15rem" ><Text text="Email"></Text></Column>
+            </columns>
+             <columns>
+                <Column width="8rem" ><Text text="Salary"></Text></Column>
+            </columns>
+             <columns >
+                <Column width="10rem"><Text text="Date of Joining"></Text></Column>
+            </columns>
+            <items>
+            <ColumnListItem  type="Active" press="onPressRow">
+                <cells>
+                      <Text text="{localData>SNo}"></Text>
+                      <Text text="{localData>Empid}"></Text>
+                   <Text text="{localData>Name}"></Text>
+                    <Text text="{path:'localData>Desig',formatter:'.f.formatDesig'}"></Text>
+                    <ObjectStatus text="{localData>Skill}" state="{path:'localData>Skill',formatter:'.f.formatSkill'}"></ObjectStatus>
+                    <Text text="{localData>Phone}"></Text>
+                    <Text text="{localData>Email}"></Text>
+                    <Text text="{path:'localData>Salary',formatter:'.f.formatCurrency'}"></Text>
+                    <Text text="{path:'localData>Doj',formatter:'.f.formatDate'}"></Text>
+                </cells>
+            </ColumnListItem>
+            </items>       
+        </Table>   
+    </ScrollContainer>
+
+
+
+</mvc:View>

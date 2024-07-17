@@ -1,0 +1,70 @@
+ <mvc:View
+    controllerName="employeesc.controller.View2"
+    xmlns="sap.m"   
+    xmlns:layout="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page title="Employee Details" showNavButton="true" navButtonPress="onBack">
+       
+     <ObjectHeader title="{CreateNUpdate>/Name}" backgroundDesign="Solid" number="{CreateNUpdate>/Salary}" numberUnit="INR">
+        <attributes>
+                <ObjectAttribute text="{CreateNUpdate>/Empid}"></ObjectAttribute>
+                <ObjectAttribute text="{CreateNUpdate>/Desig}"></ObjectAttribute>
+        </attributes>
+        <statuses>
+                <ObjectStatus text="{Skill}"></ObjectStatus>
+        </statuses>
+     </ObjectHeader>
+
+    <IconTabBar>
+    <items>
+        <!-- Employee Details Tab -->
+        <IconTabFilter icon="sap-icon://information" >
+            <layout:SimpleForm editable="true" title="Employee Details"
+                layout="ResponsiveGridLayout"
+                labelSpanL="4" labelSpanM="4" labelSpanS="12"
+                emptySpanL="0" emptySpanM="0" emptySpanS="0"
+                columnsL="2" columnsM="2" 
+                singleContainerFullSize="false">
+                <layout:content>
+                    <Label text="Employee ID"/>
+                    <Text text="{CreateNUpdate>/Empid}"/>
+
+                    <Label text="Name"/>
+                    <Text text="{CreateNUpdate>/Name}"/>
+
+                    <Label text="Designation"/>
+                    <Text text="{CreateNUpdate>/Desig}"/>
+
+                    <Label text="Skill"/>
+                    <Text text="{CreateNUpdate>/Skill}"/>
+
+                    <Label text="Email"/>
+                    <Text text="{CreateNUpdate>/Email}"/>
+
+                    <Label text="Salary"/>
+                    <Text text="{CreateNUpdate>/Salary}"/>
+
+                    <Label text="Currency Code"/>
+                    <Text text="{CreateNUpdate>/Currencycode}"/>
+
+                    <Label text="Status"/>
+                    <Text text="{CreateNUpdate>/Status}"/>
+
+                    <Label text="Status Criticality"/>
+                    <Text text="{CreateNUpdate>/Statuscriticality}"/>
+
+                    <Label text="Rating"/>
+                    <Text text="{CreateNUpdate>/Rating}"/>
+
+                    <Label text="Date of Joining"/>
+                    <Text text="{CreateNUpdate>/Doj}"/>
+                </layout:content>
+            </layout:SimpleForm>
+        </IconTabFilter>
+
+       
+    </items>
+</IconTabBar>
+
+    </Page>
+</mvc:View>
