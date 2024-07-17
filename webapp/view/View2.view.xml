@@ -19,7 +19,7 @@
     <items>
         <!-- Employee Details Tab -->
         <IconTabFilter icon="sap-icon://information" >
-            <layout:SimpleForm editable="true" title="Employee Details"
+            <layout:SimpleForm editable="true" title="Employee Info"
                 layout="ResponsiveGridLayout"
                 labelSpanL="4" labelSpanM="4" labelSpanS="12"
                 emptySpanL="0" emptySpanM="0" emptySpanS="0"
