@@ -17,9 +17,39 @@
                 <Property Name="Statuscriticality" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="STATUSCRITICALITY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Rating" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="RATING" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Doj" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="DOJ" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="toProjects" Relationship="ZCEMPLOYEES_SRV.EmployeesToProjects" FromRole="FromRole_EmployeesToProjects" ToRole="ToRole_EmployeesToProjects"/>
             </EntityType>
+            <EntityType Name="Project" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Empid"/>
+                    <PropertyRef Name="Prjcode"/>
+                </Key>
+                <Property Name="Empid" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="EMPID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Prjcode" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="PRJCODE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Clientname" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="CLIENTNAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Prjname" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="PRJNAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Prjdesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="PRJDESC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Teamsize" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="TEAMSIZE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="EmployeesToProjects" sap:content-version="1">
+                <End Type="ZCEMPLOYEES_SRV.Employee" Multiplicity="1" Role="FromRole_EmployeesToProjects"/>
+                <End Type="ZCEMPLOYEES_SRV.Project" Multiplicity="*" Role="ToRole_EmployeesToProjects"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_EmployeesToProjects">
+                        <PropertyRef Name="Empid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_EmployeesToProjects">
+                        <PropertyRef Name="Empid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
             <EntityContainer Name="ZCEMPLOYEES_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="EmployeeSet" EntityType="ZCEMPLOYEES_SRV.Employee" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ProjectSet" EntityType="ZCEMPLOYEES_SRV.Project" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="EmployeesToProjectsSet" Association="ZCEMPLOYEES_SRV.EmployeesToProjects" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="EmployeeSet" Role="FromRole_EmployeesToProjects"/>
+                    <End EntitySet="ProjectSet" Role="ToRole_EmployeesToProjects"/>
+                </AssociationSet>
             </EntityContainer>
             <atom:link rel="self" href="http://49.207.10.123:8034/sap/opu/odata/sap/ZCEMPLOYEES_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
             <atom:link rel="latest-version" href="http://49.207.10.123:8034/sap/opu/odata/sap/ZCEMPLOYEES_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>

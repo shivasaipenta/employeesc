@@ -16,23 +16,18 @@ function (Controller) {
         onPatternMatched: function(oEvent) {
             var empId = oEvent.getParameter("arguments").key;
 
-
-        //     this.getView().bindElement("/EmployeeSet('" + empId + "')");
-            
-        //     var oModel = this.getOwnerComponent().getModel();
-        //     var empData = this.getOwnerComponent().getModel("empData");
-        //     oModel.read("/EmployeeSet('" + empId + "')"),{
-        //         success(data){
-        //             empData.setData(data);
-        //         }
-
-        //     }
-
-        // },    
-                 var oModel = this.getOwnerComponent().getModel("oModel");
+            // this.getView().bindElement("/EmployeeSet('" + empId + "')");
+       
+         
+                var oModel = this.getOwnerComponent().getModel("oModel");
                 var CreateNUpdate = this.getOwnerComponent().getModel("CreateNUpdate");
 
                 oModel.read("/EmployeeSet('" + empId + "')", {
+
+                    urlParameters:{
+                        $expand:'toProjects'
+                    },
+
                     success: function(data) {
                         CreateNUpdate.setData(data);
                     },

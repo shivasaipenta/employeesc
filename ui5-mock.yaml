@@ -14,10 +14,11 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path: /sap
+          - path: /sap/opu/odata/sap/ZCEMPLOYEES_SRV
             url: http://49.207.10.123:8034
             client: "100"
             destination: training
+            authenticationType: BasicAuthentication
           - path: /sap
             url: http://49.207.10.123:8034
             client: "100"

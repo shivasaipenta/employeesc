@@ -36,8 +36,6 @@
                     <Label text="Salary"/>
                     <Input value="{CreateNUpdate>/Salary}" />
 
-              
-
                     <Label text="Status"/>
                     <Input value="{CreateNUpdate>/Status}" />
 
@@ -45,6 +43,41 @@
                    
                 </layout:content>
             </layout:SimpleForm>
+
+            <Table items="{CreateNUpdate>/toProjects}" headerText="Edit Projects" class="sapUISmallMargin" width="auto">
+                <columns>
+                    <Column >
+                        <Text text="Employee Id"></Text>
+                    </Column>
+                     <Column >
+                        <Text text="Project Code"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Client Name"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Project Name"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Project Description"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Team Size"></Text>
+                    </Column>                    
+                </columns>
+                <items>
+                <ColumnListItem >
+                    <cells>
+                        <Input value="{CreateNUpdate>Empid}"></Input>
+                        <Input value="{CreateNUpdate>Prjcode}"></Input>
+                        <Input value="{CreateNUpdate>Clientname}"></Input>
+                        <Input value="{CreateNUpdate>Prjname}"></Input>
+                        <Input value="{CreateNUpdate>Prjdesc}"></Input>
+                        <Input value="{CreateNUpdate>Teamsize}"></Input>
+                    </cells>
+                </ColumnListItem>
+                </items>
+            </Table>
 
             <footer>
               <Bar >

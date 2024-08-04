@@ -20,6 +20,7 @@ server:
             url: http://49.207.10.123:8034
             client: '100'
             destination: training
+            authenticationType: BasicAuthentication
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

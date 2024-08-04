@@ -4,6 +4,7 @@
     xmlns:layout="sap.ui.layout.form"
     xmlns:mvc="sap.ui.core.mvc">
     <Page title="Employee Details" showNavButton="true" navButtonPress="onBack">
+
        
      <ObjectHeader title="{CreateNUpdate>/Name}" backgroundDesign="Solid" number="{CreateNUpdate>/Salary}" numberUnit="INR">
         <attributes>
@@ -59,10 +60,46 @@
                     <Label text="Date of Joining"/>
                     <Text text="{CreateNUpdate>/Doj}"/>
                 </layout:content>
-            </layout:SimpleForm>
+            </layout:SimpleForm>         
         </IconTabFilter>
 
-       
+        <IconTabFilter icon="sap-icon://notes" >
+            <Table items="{CreateNUpdate>/toProjects/results}">
+                <columns>
+                    <Column >
+                        <Text text="Employee Id"></Text>
+                    </Column>
+                     <Column >
+                        <Text text="Project Code"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Client Name"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Project Name"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Project Description"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Team Size"></Text>
+                    </Column>                    
+                </columns>
+                <items>
+                <ColumnListItem >
+                    <cells>
+                        <Text text="{CreateNUpdate>Empid}"></Text>
+                        <Text text="{CreateNUpdate>Prjcode}"></Text>
+                        <Text text="{CreateNUpdate>Clientname}"></Text>
+                        <Text text="{CreateNUpdate>Prjname}"></Text>
+                        <Text text="{CreateNUpdate>Prjdesc}"></Text>
+                        <Text text="{CreateNUpdate>Teamsize}"></Text>
+                    </cells>
+                </ColumnListItem>
+                </items>
+            </Table>
+        
+        </IconTabFilter>
     </items>
 </IconTabBar>
 
